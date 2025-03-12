@@ -17,6 +17,10 @@ source lib.sh
 
 # -------------------Generate a "kube-config"
 generateKubeConfig
+export LAST_SERVICEACCOUNT_MD5SUM="$(get_token_md5sum)"
+if ! [ "$SKIP_TLS_VERIFY" == "true" ]; then
+    export LAST_KUBE_CA_FILE_MD5SUM="$(get_ca_file_md5sum)"
+fi
 # ------------------ end Generate a "kube-config"
 
 # ----------------- Generate a whereabouts conf

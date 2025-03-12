@@ -107,3 +107,15 @@ function generateWhereaboutsConf {
 EOF
 
 }
+
+function get_token_md5sum {
+  md5sum "$SERVICE_ACCOUNT_TOKEN_PATH" | awk '{print $1}'
+}
+
+function get_ca_file_md5sum {
+  if [ ! -f "$KUBE_CA_FILE" ]; then
+    echo ""
+    return
+  fi
+  md5sum "$KUBE_CA_FILE" | awk '{print $1}'
+}
