@@ -16,12 +16,10 @@ SERVICE_ACCOUNT_TOKEN=$(cat $SERVICE_ACCOUNT_PATH/token)
 SERVICE_ACCOUNT_TOKEN_PATH=$SERVICE_ACCOUNT_PATH/token
 SKIP_TLS_VERIFY=${SKIP_TLS_VERIFY:-false}
 
-LAST_SERVICEACCOUNT_MD5SUM=""
-LAST_KUBE_CA_FILE_MD5SUM=""
 
 function log()
 {
-    echo "$(date --iso-8601=seconds) ${1}"
+    echo "$(date -Iseconds) ${1}"
 }
 
 function error()
